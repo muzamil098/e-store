@@ -1,28 +1,50 @@
 import React from "react";
-
+import Link from "next/link";
 function Footer() {
   return (
     <div>
       <footer className="footer bg-base-200 text-base-content p-10 mt-5">
         <nav>
           <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <Link href={`/`} className="link link-hover">
+            Branding
+          </Link>
+          <Link href={`/`} className="link link-hover">
+            Design
+          </Link>
+          <Link href={`/`} className="link link-hover">
+            Marketing
+          </Link>
+          <Link href={`/`} className="link link-hover">
+            Advertisement
+          </Link>
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <Link href={`/`} className="link link-hover">
+            About us
+          </Link>
+          <Link href={`/`} className="link link-hover">
+            Contact
+          </Link>
+          <Link href={`/`} className="link link-hover">
+            Jobs
+          </Link>
+          <Link href={`/`} className="link link-hover">
+            Press kit
+          </Link>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <Link href={`/`} className="link link-hover">
+            Terms of use
+          </Link>
+          <Link href={`/`} className="link link-hover">
+            Privacy policy
+          </Link>
+          <Link href={`/`} className="link link-hover">
+            Cookie policy
+          </Link>
         </nav>
         <form>
           <h6 className="footer-title">Newsletter</h6>
