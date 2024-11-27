@@ -25,7 +25,6 @@ export default function Home(props) {
   } else {
     return (
       <>
-        {cartCtx.cartState && <Modal />}
         <Carousel />
         <main
           className={`${geistSans.variable} ${geistMono.variable} grid grid-cols-2 md:grid-cols-12 gap-2 md:gap-4 place-items-center px-2 md:px-4 pt-1`}

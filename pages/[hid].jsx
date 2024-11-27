@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
-function productDetailPage(props) {
+import CartContext from "@/store/cart-context";
+function ProductDetailPage(props) {
   const { data } = props;
-  console.log(data);
+  // const [quantity, setQuantity] = useState(0);
+  const cartCtx = useContext(CartContext);
+  const onAddToCartHandler = () => {
+    // setQuantity(() => quantity + 1);
+    cartCtx.cartValue;
+    cartCtx.onAddToCart(data.title, data.price, data.id, data.image);
+  };
   return (
     <>
       <Head>
@@ -29,7 +36,10 @@ function productDetailPage(props) {
           <p className="font-bold">price: {" " + data.price}</p>
           <p className="font-bold">Rating: {" " + data.rating.rate}</p>
           <div className="flex items-center space-x-2">
-            <button className="px-2 py-1 bg-gray-900 text-white rounded-md">
+            <button
+              onClick={onAddToCartHandler}
+              className="px-2 py-1 bg-gray-900 text-white rounded-md"
+            >
               Add to Cart
             </button>
             <button className="px-2 py-1 bg-gray-900 text-white rounded-md">
@@ -42,10 +52,15 @@ function productDetailPage(props) {
   );
 }
 
-export default productDetailPage;
+export default ProductDetailPage;
 export async function getStaticPaths() {
+  const res = await fetch(`https://fakestoreapi.com/products`);
+  const data = await res.json();
+  const paths = data.map((post) => ({
+    params: { hid: post.id.toString() },
+  }));
   return {
-    paths: [{ params: { hid: " 1" } }],
+    paths,
     fallback: "blocking",
   };
 }

@@ -8,7 +8,7 @@ function Modal() {
     cartCtx.cartStateHandler(false);
   };
   return (
-    <div className="absolute top-0 left-0 h-full  w-full  text-white  backdrop-blur-sm bg-white/30 z-50 flex justify-center items-center">
+    <div className="absolute top-0 left-0 h-full  w-full  text-white  backdrop-blur-sm bg-white/30 z-[1000] flex justify-center items-center">
       <div className="bg-white text-black p-4 w-[50rem] rounded-md shadow-lg z-[60]">
         <div className="w-full flex justify-end items-center">
           <h4

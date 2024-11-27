@@ -13,28 +13,25 @@ export const CartContextProvider = (props) => {
   // const [products, setProducts] = useState([]);
   const [cartState, setCartState] = useState(false);
   const [value, setValue] = useState(0);
-  let quantity = 0;
 
   const addToCartHandler = (title, price, id, image) => {
     // value += 1;
     setValue(() => value + 1);
-    console.log(value);
-    const productAdded = {
+    let quantity = 0;
+    let productAdded = {
       id: id,
       image: image,
       title: title,
       price: price,
-      quantity: quantity,
+      quantity: 0,
     };
     if (products.length) {
-      let turthOrFalse;
+      let turthOrFalse = false;
       for (let i = 0; i < products.length; i++) {
         if (productAdded.id === products[i].id) {
           turthOrFalse = true;
-          products[i].quantity++;
+          products[i].quantity = products[i].quantity + 1;
           products[i].price = products[i].price + productAdded.price;
-        } else {
-          turthOrFalse = false;
         }
       }
       if (!turthOrFalse) {
@@ -42,11 +39,11 @@ export const CartContextProvider = (props) => {
         products.push(productAdded);
       }
     }
+
     if (products.length === 0) {
-      productAdded.quantity = quantity + 1;
+      productAdded.quantity++;
       products.push(productAdded);
     }
-
     console.log(products);
   };
 

@@ -46,25 +46,25 @@ const Navbar = (props) => {
                         Electronics
                       </h3>
                       <Link
-                        href="/category/laptops"
+                        href="/laptops"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Laptops
                       </Link>
                       <Link
-                        href="/category/smartphones"
+                        href="/smartphones"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Smartphones
                       </Link>
                       <Link
-                        href="/category/tablets"
+                        href="/tablets"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Tablets
                       </Link>
                       <Link
-                        href="/category/tvs"
+                        href="/tvs"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         TVs
@@ -73,25 +73,25 @@ const Navbar = (props) => {
                     <div className="col-span-1">
                       <h3 className="px-4 py-2 font-medium text-lg">Apparel</h3>
                       <Link
-                        href="/category/mens-fashion"
+                        href="/mens-fashion"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Mens Fashion
                       </Link>
                       <Link
-                        href="/category/womens-fashion"
+                        href="/womens-fashion"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Womens Fashion
                       </Link>
                       <Link
-                        href="/category/accessories"
+                        href="/accessories"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Accessories
                       </Link>
                       <Link
-                        href="/category/shoes"
+                        href="/shoes"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Shoes
@@ -102,25 +102,25 @@ const Navbar = (props) => {
                         Home & Kitchen
                       </h3>
                       <Link
-                        href="/category/furniture"
+                        href="/furniture"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Furniture
                       </Link>
                       <Link
-                        href="/category/home-decor"
+                        href="/home-decor"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Home Decor
                       </Link>
                       <Link
-                        href="/category/kitchen-appliances"
+                        href="/kitchen-appliances"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Kitchen Appliances
                       </Link>
                       <Link
-                        href="/category/home-improvement"
+                        href="/home-improvement"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Home Improvement
@@ -149,13 +149,13 @@ const Navbar = (props) => {
               </Link>
             </div>
             <div className="flex items-center">
-              <button
-                className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium mr-4 hover:from-purple-500 hover:to-pink-700 transition duration-150 ease-in-out"
-                onClick={cartStateHandler}
-              >
-                <ShoppingCart className="inline-block mr-1" size={16} />
-                Cart {cartCtx.cartValue}
-              </button>
+              <Link href={`/cart`}>
+                {" "}
+                <button className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium mr-4 hover:from-purple-500 hover:to-pink-700 transition duration-150 ease-in-out">
+                  <ShoppingCart className="inline-block mr-1" size={16} />
+                  Cart {cartCtx.cartValue}
+                </button>
+              </Link>
               <button
                 onClick={toggleSidebar}
                 className="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white md:hidden"
