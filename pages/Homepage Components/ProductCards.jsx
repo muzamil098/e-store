@@ -20,16 +20,16 @@ function ProductCards({ image, price, category, title, rating, id }) {
         <Image
           src={image}
           alt="image"
-          className="w-[3rem] md:w-[5rem] "
+          className="max-w-12"
           height={400}
           width={400}
         />{" "}
       </div>
       <div>
-        <Link href={`${id}`} className="font-bold text-[0.8rem]">
+        <Link href={`${id}`} className="font-bold text-[0.8rem] text-black">
           {title && title.split(" ").slice(0, 3).join(" ")}
         </Link>
-        <div className="flex justify-between font-bold items-center w-full">
+        <div className="flex justify-between font-bold items-center w-full text-yellow-600">
           <p>${price}</p>
           <p>{rating && rating.rate}</p>
         </div>

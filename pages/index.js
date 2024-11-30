@@ -21,7 +21,11 @@ export default function Home(props) {
   const cartCtx = useContext(CartContext);
   const { data } = props;
   if (data === null) {
-    return <div>Failed to fetch.........</div>;
+    return (
+      <div className="py-[5rem] h-screen w-screen flex items-center justify-center">
+        <h1 className="text-4xl font-bold">Check your internet connection!</h1>
+      </div>
+    );
   } else {
     return (
       <>

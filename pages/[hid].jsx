@@ -28,7 +28,7 @@ function ProductDetailPage(props) {
           />
         </div>
         <div className="w-1/2 space-y-2">
-          <div className="text-4xl font-bold">{data.title}</div>
+          <div className="text-4xl font-bold text-black">{data.title}</div>
           <h3 className="font-bold text-2xl">
             Category: {" " + data.category}
           </h3>
