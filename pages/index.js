@@ -6,6 +6,9 @@ import Modal from "./Homepage Components/Modal";
 import CartContext from "@/store/cart-context";
 import { useContext } from "react";
 import Carousel from "./Homepage Components/Carousel";
+import Deals from "./Homepage Components/Deals";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -20,16 +23,21 @@ const geistMono = localFont({
 export default function Home(props) {
   const cartCtx = useContext(CartContext);
   const { data } = props;
+  console.log(data);
   if (data === null) {
     return (
-      <div className="py-[5rem] h-screen w-screen flex items-center justify-center">
+      <div className="py-[5rem] h-screen w-screen flex-col flex items-center justify-center">
         <h1 className="text-4xl font-bold">Check your internet connection!</h1>
+        <Deals />
       </div>
     );
   } else {
     return (
       <>
         <Carousel />
+        <div className="w-full rounded-lg px-4 ">
+          <Deals />
+        </div>
         <main
           className={`${geistSans.variable} ${geistMono.variable} grid grid-cols-2 md:grid-cols-12 gap-2 md:gap-4 place-items-center px-2 md:px-4 pt-1`}
         >

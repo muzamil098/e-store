@@ -42,32 +42,13 @@ const Navbar = (props) => {
                 {isDropdownOpen && (
                   <div className="absolute left-0 mt-4 w-[35rem] bg-white rounded-md shadow-lg py-4 grid grid-cols-3 gap-4">
                     <div className="col-span-1">
-                      <h3 className="px-4 py-2 font-medium text-lg">
-                        Electronics
-                      </h3>
                       <Link
                         href="/laptops"
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
-                        Laptops
-                      </Link>
-                      <Link
-                        href="/smartphones"
-                        className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
-                      >
-                        Smartphones
-                      </Link>
-                      <Link
-                        href="/tablets"
-                        className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
-                      >
-                        Tablets
-                      </Link>
-                      <Link
-                        href="/tvs"
-                        className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
-                      >
-                        TVs
+                        <h3 className="px-4 py-2 font-medium text-lg">
+                          Electronics
+                        </h3>
                       </Link>
                     </div>
                     <div className="col-span-1">
@@ -83,18 +64,6 @@ const Navbar = (props) => {
                         className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
                       >
                         Womens Fashion
-                      </Link>
-                      <Link
-                        href="/accessories"
-                        className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
-                      >
-                        Accessories
-                      </Link>
-                      <Link
-                        href="/shoes"
-                        className="block px-4 py-2 hover:bg-gray-200 transition duration-150 ease-in-out"
-                      >
-                        Shoes
                       </Link>
                     </div>
                     <div className="col-span-1">
@@ -146,6 +115,12 @@ const Navbar = (props) => {
                 className="px-4 py-2 rounded-md hover:bg-gray-200 transition duration-150 ease-in-out"
               >
                 Contact
+              </Link>
+              <Link
+                href="/trackorderdetails"
+                className="px-4 py-2 rounded-md hover:bg-gray-200 transition duration-150 ease-in-out"
+              >
+                Order Details
               </Link>
             </div>
             <div className="flex items-center">
@@ -200,7 +175,7 @@ const Navbar = (props) => {
                 href="/category/laptops"
                 className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
               >
-                Laptops
+                Electronics
               </Link>
             </li>
             <li>
@@ -208,7 +183,7 @@ const Navbar = (props) => {
                 href="/category/smartphones"
                 className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
               >
-                Smartphones
+                MensClothing
               </Link>
             </li>
             <li>
@@ -216,87 +191,7 @@ const Navbar = (props) => {
                 href="/category/tablets"
                 className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
               >
-                Tablets
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/tvs"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                TVs
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/mens-fashion"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Mens Fashion
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/womens-fashion"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Womens Fashion
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/accessories"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Accessories
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/shoes"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Shoes
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/furniture"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Furniture
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/home-decor"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Home Decor
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/kitchen-appliances"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Kitchen Appliances
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/category/home-improvement"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Home Improvement
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/shop"
-                className="text-white hover:text-gray-300 transition duration-150 ease-in-out"
-              >
-                Shop
+                Womens Clothing
               </Link>
             </li>
             <li>

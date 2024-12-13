@@ -14,13 +14,13 @@ function ProductCards({ image, price, category, title, rating, id }) {
     cartCtx.onAddToCart(title, price, id, image);
   };
   return (
-    <div className="border w-[11rem] h-[15rem] md:w-[15rem] md:h-[15rem] px-4 space-y-4 py-2 shadow-md flex flex-col rounded justify-between ">
+    <div className="border w-[11rem] h-[15rem] md:w-[15rem] md:h-[18rem] px-4 space-y-4 py-2 shadow-md flex flex-col rounded justify-between ">
       <div className="w-full h-[10rem] flex justify-center items-center  overflow-hidden mx-auto mt-2">
         {" "}
         <Image
           src={image}
           alt="image"
-          className="max-w-12"
+          className="max-w-20"
           height={400}
           width={400}
         />{" "}
@@ -29,7 +29,7 @@ function ProductCards({ image, price, category, title, rating, id }) {
         <Link href={`${id}`} className="font-bold text-[0.8rem] text-black">
           {title && title.split(" ").slice(0, 3).join(" ")}
         </Link>
-        <div className="flex justify-between font-bold items-center w-full text-yellow-600">
+        <div className="flex justify-between font-bold items-center w-full text-black">
           <p>${price}</p>
           <p>{rating && rating.rate}</p>
         </div>

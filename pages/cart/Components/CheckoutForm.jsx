@@ -45,21 +45,24 @@ function CheckoutForm() {
           message: `Your order has been placed Successfully with Id ${orderId} with cash on delivery`,
         };
 
-        emailjs
-          .send(
-            "service_ol1b9ja",
-            "template_glmg9mk",
-            templateParams,
-            "y0R8A6OO8QgyhWAos"
-          )
-          .then(
-            () => {
-              console.log("SUCCESS!");
-            },
-            (error) => {
-              console.log("FAILED...", error.text);
-            }
-          );
+        {
+          data &&
+            emailjs
+              .send(
+                "service_ol1b9ja",
+                "template_glmg9mk",
+                templateParams,
+                "y0R8A6OO8QgyhWAos"
+              )
+              .then(
+                () => {
+                  console.log("SUCCESS!");
+                },
+                (error) => {
+                  console.log("FAILED...", error.text);
+                }
+              );
+        }
         values.name = "";
         values.lastName = "";
         values.email = "";
@@ -91,7 +94,7 @@ function CheckoutForm() {
       >
         {resStatus === 201 && (
           <h1 className="text-center bg-green-700 text-white font-bold text-xl">
-            Order Placed With id {orderId}
+            Order Placed With id {orderId}. Id has been sent to your email.
           </h1>
         )}
         <div className="flex justify-between items-center w-full">
