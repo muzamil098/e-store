@@ -1,7 +1,6 @@
 import React from "react";
 import ProductCards from "../Homepage Components/ProductCards";
 function Laptops({ data }) {
-  console.log(data);
   return (
     <section className="py-[5rem] flex items-center justify-between">
       {data.map((d) => (
