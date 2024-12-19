@@ -155,7 +155,6 @@ const Navbar = (props) => {
           onClick={toggleSidebar}
         ></div>
       )}
-
       {/* Sidebar */}
       <div
         className={`fixed top-0 right-0 h-full w-64 bg-gray-800 transform transition-transform duration-300 ease-in-out z-50 ${
