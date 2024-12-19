@@ -1,5 +1,4 @@
 import React from "react";
-import Slider from "react-slick";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FiChevronLeft } from "react-icons/fi";
