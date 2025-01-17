@@ -46,7 +46,6 @@ function Deals(props) {
     speed: 1000,
     autoplaySpeed: 3000,
     cssEase: "linear",
-    dots: true,
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -60,7 +59,6 @@ function Deals(props) {
           slidesToScroll: 1,
           initialSlide: 4,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -81,11 +79,11 @@ function Deals(props) {
     ],
   };
   return (
-    <div className={`slider-container px-12 md:px-20 my-4 space-x-10 `}>
-      <Slider {...settings}>
+    <div className={`slider-container px-8 md:px-20 my-4 `}>
+      <Slider {...settings} className="space-x-5">
         {data &&
           data.map((item) => (
-            <li key={item.id} className=" lg:w-full my-4 mx-10 ">
+            <li key={item.id} className=" lg:w-full my-4 ">
               <Card
                 sx={{ maxWidth: 290 }}
                 className={`p-4 ${styles.dealsCSS} `}
