@@ -11,6 +11,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styles from "../../styles/carousel.module.css";
+import { CiHeart } from "react-icons/ci";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -47,7 +48,7 @@ function Deals(props) {
     cssEase: "linear",
     dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -55,8 +56,9 @@ function Deals(props) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 4,
           infinite: true,
           dots: true,
         },
@@ -66,7 +68,7 @@ function Deals(props) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2,
+          initialSlide: 4,
         },
       },
       {
@@ -83,28 +85,35 @@ function Deals(props) {
       <Slider {...settings}>
         {data &&
           data.map((item) => (
-            <li key={item.id} className="w-full">
+            <li key={item.id} className=" lg:w-full my-4 mx-10 ">
               <Card
-                sx={{ maxWidth: 350, minWidth: 100, width: 400 }}
-                className={`p-4 ${styles.dealsCSS}`}
+                sx={{ maxWidth: 290 }}
+                className={`p-4 ${styles.dealsCSS} `}
               >
                 <CardMedia
-                  sx={{ height: 450, maxWidth: 400, scale: 0.9 }}
+                  sx={{ height: 250, maxWidth: 400, scale: 0.9 }}
                   image={item.image}
                   title={item.title}
-                  className={`mx-auto p-10 ${styles.dealsCSS}`}
+                  className={`mx-auto p-10 rounded-lg`}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  {/* <Typography gutterBottom variant="h5" component="div">
                     {item.title.split(" ").slice(0, 3).join(" ")}
-                  </Typography>
+                  </Typography> */}
                   {/* <Typography variant="body2" sx={{ color: "text.secondary" }}>
                   {item.description}
                 </Typography> */}
                 </CardContent>
-                <CardActions>
-                  <Button size="medium">Share</Button>
-                  <Button size="medium">Learn More</Button>
+                <CardActions className="flex justify-between items-center px-4">
+                  <Button
+                    size="small"
+                    className="bg-gray-900 p-4 w-full text-white text-[0.6rem]"
+                  >
+                    Add to Cart
+                  </Button>
+                  <Button size="small" className="text-4xl">
+                    <CiHeart className="text-gray-600" />
+                  </Button>
                 </CardActions>
               </Card>
             </li>
