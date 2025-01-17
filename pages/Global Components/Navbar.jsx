@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Menu, X, ShoppingCart, ChevronDown } from "lucide-react";
+import styles from "../../styles/shared.module.css";
 import CartContext from "@/store/cart-context";
 import Link from "next/link";
 const Navbar = (props) => {
@@ -22,7 +23,9 @@ const Navbar = (props) => {
 
   return (
     <>
-      <nav className="bg-white text-black fixed w-full top-0 left-0 z-30 shadow-sm">
+      <nav
+        className={`bg-white text-black fixed w-full top-0 left-0 z-30 shadow-sm ${styles.navbar}`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">

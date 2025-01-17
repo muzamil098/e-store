@@ -1,0 +1,84 @@
+.navbar {
+  animation: navbarAnimation 1s ease-out;
+}
+.carousel {
+  animation: carouselAnimation 2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(8, 112, 184, 0.7) !important;
+  border-radius: 1rem !important;
+}
+.sliderComponent {
+  width: 5rem !important;
+}
+.checkoutModal {
+  animation: checkoutModalAnimation 2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.checkoutModal {
+  animation: checkoutModalAnimation 2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.closeCheckoutModal {
+  animation: closeCheckoutModalAnimation 2s cubic-bezier(0.76, 0, 0.24, 1) 8
+    alternate;
+}
+
+@keyframes closeCheckoutModalAnimation {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-4rem);
+    opacity: 0;
+  }
+}
+
+@keyframes checkoutModalAnimation {
+  from {
+    transform: translateY(-4rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes carouselAnimation {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100vw;
+    opacity: 1;
+  }
+}
+
+@keyframes navbarAnimation {
+  from {
+    transform: translateY(-4rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.askAIButton {
+  animation: askAIButtonAnimation 0.5s cubic-bezier(0.76, 0, 0.24, 1) 3
+    alternate;
+}
+
+@keyframes askAIButtonAnimation {
+  0% {
+    rotate: -10deg;
+    scale: 50%;
+  }
+  50% {
+    rotate: 10deg;
+    scale: 70%;
+  }
+  100% {
+    rotate: 0deg;
+    scale: 100%;
+  }
+}

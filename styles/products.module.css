@@ -1,0 +1,13 @@
+.productCard {
+  animation: animateProducts 800ms ease-in 3 alternate;
+  box-shadow: 0 4px 15px rgba(8, 112, 184, 0.7) !important;
+  border-radius: 1rem !important;
+}
+@keyframes animateProducts {
+  0% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}

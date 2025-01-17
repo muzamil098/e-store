@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useFormik } from "formik";
-
+import styles from "../../styles/shared.module.css";
 function AskNextAI() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState();
@@ -48,7 +48,7 @@ function AskNextAI() {
         />
         <button
           type="submit"
-          className="px-2 py-4 bg-gray-900 rounded-lg mx-2 text-white"
+          className={`px-2 py-4 bg-gray-900 rounded-lg mx-2 text-white ${styles.askAIButton}`}
         >
           Enter
         </button>

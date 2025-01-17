@@ -5,6 +5,7 @@ import { useContext } from "react";
 import Carousel from "./Homepage Components/Carousel";
 import Deals from "./Homepage Components/Deals";
 import AskNextAI from "./Homepage Components/AskNextAI";
+import CarouselComponent from "./Global Components/CarouselComponent";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,24 +25,23 @@ export default function Home(props) {
     return (
       <div className="py-[5rem] h-screen w-screen flex-col flex items-center justify-center">
         <h1 className="text-4xl font-bold">Check your internet connection!</h1>
-        <Deals />
       </div>
     );
   } else {
     return (
-      <>
+      <div className="bg">
         <Carousel />
-        <div className="w-full rounded-lg px-4 ">
-          <Deals />
-        </div>
         <div>
           <AskNextAI />
         </div>
+        <div>
+          <Deals data={data} />
+        </div>
         <main
-          className={`${geistSans.variable} ${geistMono.variable} grid grid-cols-2 md:grid-cols-12 gap-2 md:gap-4 place-items-center px-2 md:px-4 pt-1`}
+          className={`${geistSans.variable} ${geistMono.variable} grid md:grid-cols-3 lg:grid-cols-4 lg:gap-10 md:gap-2 place-items-center lg:px-[8rem] md:px-4 pt-1`}
         >
           {data.map((d) => (
-            <li className=" md:col-span-4 lg:col-span-2 list-none" key={d.id}>
+            <li className="list-none w-full" key={d.id}>
               {" "}
               <ProductCards
                 id={d.id}
@@ -53,7 +53,9 @@ export default function Home(props) {
             </li>
           ))}
         </main>
-      </>
+        <hr className="my-10 w-[80%] mx-auto " />
+        <Deals data={data} />{" "}
+      </div>
     );
   }
 }

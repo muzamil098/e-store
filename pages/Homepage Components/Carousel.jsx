@@ -1,9 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import styles from "../../styles/shared.module.css";
 function Carousel() {
   return (
-    <div className="px-2 md:px-4">
-      <div className="carousel carousel-end rounded-box mt-[5rem] shadow-md">
+    <div className={`flex justify-center items-center p-4  mt-[5rem]`}>
+      <div
+        className={`carousel carousel-end rounded-box shadow-md ${styles.carousel} `}
+      >
         <div className="carousel-item w-full max-w-64">
           <Image
             src="https://images.unsplash.com/photo-1695527081756-6e15ed27c6a3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
