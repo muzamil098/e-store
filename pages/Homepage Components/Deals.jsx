@@ -84,12 +84,9 @@ function Deals(props) {
         {data &&
           data.map((item) => (
             <li key={item.id} className=" lg:w-full my-4 ">
-              <Card
-                sx={{ maxWidth: 290 }}
-                className={`p-4 ${styles.dealsCSS} `}
-              >
+              <Card className={`w-full p-4 ${styles.dealsCSS} `}>
                 <CardMedia
-                  sx={{ height: 250, maxWidth: 400, scale: 0.9 }}
+                  sx={{ height: 150, scale: 0.9 }}
                   image={item.image}
                   title={item.title}
                   className={`mx-auto p-10 rounded-lg`}

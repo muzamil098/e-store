@@ -24,10 +24,10 @@ function ProductCards({ image, price, category, title, rating, id }) {
   return (
     <Card
       sx={{ marginTop: 6 }}
-      className={`w-full md:max-w-[20rem] md:min-w-[15rem] lg:max-w-[25rem] p-4 lg:min-w-[11rem] ${styles.productCard}`}
+      className={`w-full md:max-w-[20rem] md:min-w-[15rem] lg:max-w-[25rem] p-4 lg:min-w-[11rem] -space-y-6 ${styles.productCard}`}
     >
       <CardMedia
-        sx={{ height: 140, maxWidth: 110 }}
+        sx={{ height: 120, maxWidth: 120 }}
         image={image}
         title="green iguana"
         className="mx-auto"
@@ -35,7 +35,7 @@ function ProductCards({ image, price, category, title, rating, id }) {
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           <Link href={`${id}`} className="font-bold text-[0.8rem] text-black">
-            {title && title.split(" ").slice(0, 3).join(" ")}
+            {title && title.split(" ").slice(0, 2).join(" ")}
           </Link>
         </Typography>
         <Typography
@@ -48,10 +48,10 @@ function ProductCards({ image, price, category, title, rating, id }) {
           <span>{rating && rating.rate}</span>
         </Typography>
       </CardContent>
-      <CardActions className="flex justify-between items-center px-4">
+      <CardActions className="flex justify-between items-center px-2">
         <Button
           size="small"
-          className="bg-gray-900 p-4 w-full text-white font-semibold"
+          className="bg-gray-900 p-2 w-full text-white font-semibold text-[0.7rem]"
           onClick={onAddToCartHandler}
         >
           Add to Cart

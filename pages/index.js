@@ -38,7 +38,7 @@ export default function Home(props) {
           <Deals data={data} />
         </div>
         <main
-          className={`${geistSans.variable} ${geistMono.variable}  grid md:grid-cols-3 lg:grid-cols-4 lg:gap-10 md:gap-2 place-items-center lg:px-[8rem] px-4 pt-1`}
+          className={`${geistSans.variable} ${geistMono.variable}  grid md:grid-cols-3 lg:grid-cols-5 lg:gap-10 md:gap-2 place-items-center lg:px-[8rem] px-4 pt-1`}
         >
           {data.map((d) => (
             <li className="list-none w-full" key={d.id}>
