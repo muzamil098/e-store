@@ -144,12 +144,12 @@ function ProductCards({ image, price, category, title, rating, id }) {
                       px-2 sm:px-3 py-2 sm:py-2 
                       font-medium text-xs sm:text-xs md:text-xs 
                       rounded-lg normal-case min-w-[50px] sm:min-w-0 flex-shrink-0"
-            onClick={onRemoveFromCartHandler}
-            disabled={actualQuantity === 0}
-            style={{
-              opacity: actualQuantity === 0 ? 0.5 : 1,
-              cursor: actualQuantity === 0 ? "not-allowed" : "pointer",
-            }}
+            onClick={() => cartCtx.onRemoveFromCart(id)}
+            // disabled={actualQuantity === 0}
+            // style={{
+            //   opacity: actualQuantity === 0 ? 0.5 : 1,
+            //   cursor: actualQuantity === 0 ? "not-allowed" : "pointer",
+            // }}
           >
             <span className="hidden sm:inline">Remove</span>
             <span className="sm:hidden">Remove</span>
