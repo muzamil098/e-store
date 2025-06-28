@@ -18,35 +18,54 @@ function ProductDetailPage(props) {
         <title>Products Detail Page</title>
         <meta name="description" content="Buy anything u want on E-Store" />
       </Head>
-      <div className="mt-[5rem] flex flex-col md:flex-row justify-center items-center w-full">
-        <div className="lg:w-1/2 flex items-center justify-center">
-          <Image
-            src={data.image}
-            className="w-1/2"
-            alt="image"
-            height={500}
-            width={500}
-          />
-        </div>
-        <div className="px-4 md:px-2 lg:px-4 lg:w-1/2 ">
-          <div className="lg:w-1/2 space-y-6">
-            <div className="text-4xl font-bold text-black">{data.title}</div>
-            <h3 className="font-bold text-2xl text-black">
-              Category: {" " + data.category}
-            </h3>
-            <p className=" italic ">{data.description}</p>
-            <p className="font-bold text-black">price: {" " + data.price}</p>
-            <p className="font-bold text-black">
-              Rating: {" " + data.rating.rate}
-            </p>
-            <div className="flex items-center space-x-2">
+      <div className="mt-[5rem] flex justify-center items-center w-full min-h-[80vh] bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-2">
+        <div className="w-full max-w-4xl bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden">
+          {/* Image Section */}
+          <div className="md:w-1/2 flex items-center justify-center bg-white0 p-6">
+            <div className="w-full max-w-xs aspect-square bg-white rounded-xl flex items-center justify-center overflow-hidden">
+              <Image
+                src={data.image}
+                alt="image"
+                height={400}
+                width={400}
+                className="object-contain w-full h-full"
+                priority
+              />
+            </div>
+          </div>
+          {/* Info Section */}
+          <div className="md:w-1/2 flex flex-col justify-center p-6 gap-6">
+            <div className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-2">
+              {data.title}
+            </div>
+            <div className="flex flex-wrap gap-2 items-center mb-2">
+              <span className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">
+                {data.category}
+              </span>
+              <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">
+                Rating: {data.rating.rate}
+              </span>
+            </div>
+            <p className="text-gray-700 text-base mb-2">{data.description}</p>
+            <div className="flex items-end gap-3 mb-4">
+              <span className="text-2xl md:text-3xl font-bold text-blue-600">
+                ${data.price}
+              </span>
+              <span className="text-sm text-gray-400 line-through">
+                ${(data.price * 1.2).toFixed(2)}
+              </span>
+              <span className="text-xs text-green-600 font-semibold">
+                20% OFF
+              </span>
+            </div>
+            <div className="flex gap-4 mt-2">
               <button
                 onClick={onAddToCartHandler}
-                className="px-4 py-2 bg-gray-900 text-white rounded-md"
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition-all duration-150"
               >
                 Add to Cart
               </button>
-              <button className="px-4 py-2 bg-gray-900 text-white rounded-md">
+              <button className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold shadow transition-all duration-150">
                 Buy now
               </button>
             </div>

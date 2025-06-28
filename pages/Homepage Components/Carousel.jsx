@@ -1,68 +1,57 @@
 import React from "react";
 import Image from "next/image";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 import styles from "../../styles/shared.module.css";
+
+const images = [
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1465101178521-c1a9136a3b41?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1920&q=80",
+];
+
 function Carousel() {
   return (
-    <div className={`flex justify-center items-center p-4  mt-[5rem]`}>
-      <div
-        className={`carousel carousel-end rounded-box shadow-md ${styles.carousel} `}
-      >
-        <div className="carousel-item w-full max-w-64">
-          <Image
-            src="https://images.unsplash.com/photo-1695527081756-6e15ed27c6a3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Drink"
-            height={300}
-            width={300}
-          />
-        </div>
-        <div className="carousel-item w-full max-w-64">
-          <Image
-            src="https://images.unsplash.com/photo-1695527081884-06f9dffe919a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Drink"
-            height={300}
-            width={300}
-          />
-        </div>
-        <div className="carousel-item w-full max-w-64">
-          <Image
-            src="https://images.unsplash.com/photo-1695527081937-6fa99f623c47?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Drink"
-            height={300}
-            width={300}
-          />
-        </div>
-        <div className="carousel-item w-full max-w-64">
-          <Image
-            src="https://images.unsplash.com/photo-1695527082185-f9d347a3c824?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Drink"
-            height={300}
-            width={300}
-          />
-        </div>
-        <div className="carousel-item w-full max-w-64">
-          <Image
-            src="https://images.unsplash.com/photo-1695527081846-51ba500d9040?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Drink"
-            height={300}
-            width={300}
-          />
-        </div>
-        <div className="carousel-item w-full max-w-64">
-          <Image
-            src="https://images.unsplash.com/photo-1695527081926-91936cdbc54e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Drink"
-            height={300}
-            width={300}
-          />
-        </div>
-        <div className="carousel-item w-full max-w-64">
-          <Image
-            src="https://images.unsplash.com/photo-1695527081793-91a2d4b5b103?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Drink"
-            height={300}
-            width={300}
-          />
-        </div>
+    <div className="flex justify-center items-center mt-[5rem] w-[90vw] mx-auto">
+      <div className="w-[90vw] h-[50vh] max-w-[90vw]">
+        <Splide
+          options={{
+            type: "loop",
+            perPage: 1,
+            gap: "0rem",
+            autoplay: true,
+            interval: 3500,
+            pauseOnHover: true,
+            arrows: true,
+            pagination: true,
+          }}
+          aria-label="Unsplash Image Carousel"
+          style={{ height: "100%" }}
+        >
+          {images.map((src, idx) => (
+            <SplideSlide key={idx}>
+              <div className="w-full h-[50vh] flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl overflow-hidden">
+                <Image
+                  src={src}
+                  alt={`Unsplash ${idx}`}
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                    transition: "transform 0.2s",
+                  }}
+                  className="group-hover:scale-105"
+                  sizes="90vw"
+                />
+              </div>
+            </SplideSlide>
+          ))}
+        </Splide>
       </div>
     </div>
   );

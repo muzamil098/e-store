@@ -15,18 +15,21 @@ function CheckoutForm() {
       setIsLoading(true);
       setResStatus("");
 
-      const response = await fetch("/api/placeorder", {
-        method: "POST",
-        body: JSON.stringify({
-          placeOrder: {
-            values,
-            orderDetails: cartCtx.productsAdded,
+      const response = await fetch(
+        "https://e-store-3b990-default-rtdb.firebaseio.com/orders.json",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            placeOrder: {
+              values,
+              orderDetails: cartCtx.productsAdded,
+            },
+          }),
+          headers: {
+            "Content-Type": "application/json",
           },
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+        }
+      );
       if (!response.ok) {
         console.log("Error occured");
       }
@@ -42,7 +45,7 @@ function CheckoutForm() {
         const templateParams = {
           subject: "Order Placement Verification",
           name: values.name,
-          message: `Your order has been placed Successfully with Id ${orderId} with cash on delivery`,
+          message: `Your order has been placed Successfully with Id ${data.name} with cash on delivery`,
         };
 
         {

@@ -16,6 +16,7 @@
     "@material-tailwind/react": "^2.1.10",
     "@mui/icons-material": "^6.4.0",
     "@mui/material": "^6.4.0",
+    "@splidejs/react-splide": "^0.7.12",
     "formik": "^2.4.6",
     "lucide-react": "^0.455.0",
     "mongodb": "^6.11.0",
