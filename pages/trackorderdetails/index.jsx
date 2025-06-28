@@ -18,15 +18,19 @@ function TrackOrderDetails() {
       return;
     }
     try {
-      const response = await fetch(`/api/track-order`, {
-        method: "POST",
-        body: JSON.stringify({ tNumber }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      // const response = await fetch(`/api/track-order`, {
+      //   method: "POST",
+      //   body: JSON.stringify({ tNumber }),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // });
+      const response = await fetch(
+        `https://e-store-3b990-default-rtdb.firebaseio.com/orders/${tNumber}.json`
+      );
       const data = await response.json();
-      if (!response.ok || !data?.message?.values) {
+      console.log(data);
+      if (!response.ok || !data?.placeOrder?.values) {
         setError(data?.message || "Order not found.");
         setOrderData(undefined);
       } else {
@@ -40,7 +44,7 @@ function TrackOrderDetails() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-blue-100 px-2 py-8">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-blue-100 px-2 py-20">
       <div className="w-full max-w-md bg-white/90 rounded-2xl shadow-xl p-8 flex flex-col items-center">
         <h1 className="text-2xl font-bold mb-6 text-blue-900 tracking-tight">
           Track Your Order
@@ -110,23 +114,23 @@ function TrackOrderDetails() {
                 <div className="flex-1">
                   <div className="mb-2">
                     <span className="font-semibold text-blue-900">Name:</span>{" "}
-                    {orderData.message.values.name}
+                    {orderData.placeOrder.values.name}
                   </div>
                   <div className="mb-2">
                     <span className="font-semibold text-blue-900">
                       Last Name:
                     </span>{" "}
-                    {orderData.message.values.lastName}
+                    {orderData.placeOrder.values.lastName}
                   </div>
                   <div className="mb-2">
                     <span className="font-semibold text-blue-900">Email:</span>{" "}
-                    {orderData.message.values.email}
+                    {orderData.placeOrder.values.email}
                   </div>
                   <div className="mb-2">
                     <span className="font-semibold text-blue-900">
                       Address:
                     </span>{" "}
-                    {orderData.message.values.address}
+                    {orderData.placeOrder.values.address}
                   </div>
                 </div>
                 <div className="flex-1">
@@ -134,29 +138,83 @@ function TrackOrderDetails() {
                     <span className="font-semibold text-blue-900">
                       Contact:
                     </span>{" "}
-                    {orderData.message.values.contact}
+                    {orderData.placeOrder.values.contact}
                   </div>
                   <div className="mb-2">
                     <span className="font-semibold text-blue-900">
                       Order ID:
                     </span>{" "}
-                    {orderData.message.values.orderId || "-"}
+                    {orderData.placeOrder.values.orderId || "-"}
                   </div>
                   <div className="mb-2">
                     <span className="font-semibold text-blue-900">Status:</span>{" "}
                     <span className="inline-block px-2 py-1 rounded bg-blue-200 text-blue-900 font-semibold text-xs">
-                      {orderData.message.values.status || "Processing"}
+                      {orderData.placeOrder.values.status || "Processing"}
                     </span>
                   </div>
                 </div>
               </div>
               <div className="mt-2 border-t pt-3 text-xs text-gray-500 text-right">
                 Last updated:{" "}
-                {orderData.message.values.updatedAt
+                {orderData.placeOrder.values.updatedAt
                   ? new Date(
-                      orderData.message.values.updatedAt
+                      orderData.placeOrder.values.updatedAt
                     ).toLocaleString()
                   : "-"}
+              </div>
+              {/* Order Details Section */}
+              <div className="mt-4 border-t pt-4">
+                <h3 className="text-lg font-semibold mb-2 text-blue-900">
+                  Order Items
+                </h3>
+                <ul className="divide-y divide-gray-200">
+                  {orderData.placeOrder.orderDetails &&
+                  orderData.placeOrder.orderDetails.length > 0 ? (
+                    orderData.placeOrder.orderDetails.map((item) => (
+                      <li
+                        key={item.id}
+                        className="py-3 flex items-center gap-4 bg-white/80 rounded-lg shadow-sm mb-2 px-3 border border-blue-100 hover:shadow-md transition-all"
+                      >
+                        {/* Product image if available */}
+                        {item.image && (
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-12 h-12 object-contain rounded border border-gray-200 bg-gray-50"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <div className="font-semibold text-blue-900 truncate">
+                            {item.title}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            Qty: {item.quantity}
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-end min-w-[80px]">
+                          <span className="text-blue-700 font-bold text-base">
+                            ${(item.price * item.quantity).toFixed(2)}
+                          </span>
+                          <span className="text-xs text-gray-400">
+                            @ ${item.price.toFixed(2)} each
+                          </span>
+                        </div>
+                      </li>
+                    ))
+                  ) : (
+                    <li className="py-2 text-gray-500">No items found.</li>
+                  )}
+                </ul>
+                <div className="flex justify-end font-bold mt-4">
+                  <span className="text-blue-700">
+                    Total: $
+                    {orderData.placeOrder.orderDetails
+                      ? orderData.placeOrder.orderDetails
+                          .reduce((sum, p) => sum + p.price * p.quantity, 0)
+                          .toFixed(2)
+                      : "0.00"}
+                  </span>
+                </div>
               </div>
             </div>
           </div>

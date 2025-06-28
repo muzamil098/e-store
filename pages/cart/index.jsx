@@ -8,6 +8,7 @@ function Cart() {
   const checkoutHandler = () => {
     setIsCheckout(!isCheckout);
   };
+
   // Calculate total price
   const total = cartCtx.productsAdded.reduce(
     (sum, p) => sum + p.price * (p.quantity || 1),
@@ -65,13 +66,26 @@ function Cart() {
                       </td>
                       <td className="px-3 py-2 align-middle">
                         <div className="flex items-center gap-2">
-                          <button className="bg-gray-200 hover:bg-blue-200 text-blue-700 rounded-full w-7 h-7 flex items-center justify-center font-bold text-lg transition">
+                          <button
+                            className="bg-gray-200 hover:bg-blue-200 text-blue-700 rounded-full w-7 h-7 flex items-center justify-center font-bold text-lg transition"
+                            onClick={() => cartCtx.onRemoveFromCart(p.id)}
+                          >
                             -
                           </button>
                           <span className="font-semibold text-gray-800 min-w-[24px] text-center">
                             {p.quantity}
                           </span>
-                          <button className="bg-gray-200 hover:bg-blue-200 text-blue-700 rounded-full w-7 h-7 flex items-center justify-center font-bold text-lg transition">
+                          <button
+                            className="bg-gray-200 hover:bg-blue-200 text-blue-700 rounded-full w-7 h-7 flex items-center justify-center font-bold text-lg transition"
+                            onClick={() =>
+                              cartCtx.onAddToCart(
+                                p.title,
+                                p.price,
+                                p.id,
+                                p.image
+                              )
+                            }
+                          >
                             +
                           </button>
                         </div>
