@@ -1,6 +1,4 @@
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import React, { useState } from "react";
-import "tailwindcss/tailwind.css";
 
 const CarouselComponent = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

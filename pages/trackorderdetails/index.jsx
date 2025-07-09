@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useRef } from "react";
+import React, { useState, useRef } from "react";
 function TrackOrderDetails() {
   const [orderData, setOrderData] = useState();
   const [loading, setLoading] = useState(false);

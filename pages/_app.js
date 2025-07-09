@@ -5,16 +5,23 @@ import Footer from "./Global Components/Footer";
 import Modal from "./Homepage Components/Modal";
 import CartContext from "@/store/cart-context";
 import { useContext } from "react";
-export default function App({ Component, pageProps }) {
+
+function AppContent({ Component, pageProps }) {
   const cartCtx = useContext(CartContext);
   return (
     <>
-      <CartContextProvider>
-        <Navbar />
-        {cartCtx.cartState && <Modal />}
-        <Component {...pageProps} />
-        <Footer />
-      </CartContextProvider>
+      <Navbar />
+      {cartCtx.cartState && <Modal />}
+      <Component {...pageProps} />
+      <Footer />
     </>
+  );
+}
+
+export default function App({ Component, pageProps }) {
+  return (
+    <CartContextProvider>
+      <AppContent Component={Component} pageProps={pageProps} />
+    </CartContextProvider>
   );
 }
