@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useFormik } from "formik";
 import { IoMdChatbubbles, IoMdClose } from "react-icons/io";
-import styles from "../../styles/shared.module.css";
 
 function AskNextAI() {
   const [isOpen, setIsOpen] = useState(false);

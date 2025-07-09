@@ -1,15 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import CartContext from "@/store/cart-context";
 import Deals from "./Homepage Components/Deals";
 function ProductDetailPage(props) {
   const { data } = props;
-  // const [quantity, setQuantity] = useState(0);
   const cartCtx = useContext(CartContext);
   const onAddToCartHandler = () => {
-    // setQuantity(() => quantity + 1);
-    cartCtx.cartValue;
     cartCtx.onAddToCart(data.title, data.price, data.id, data.image);
   };
   return (

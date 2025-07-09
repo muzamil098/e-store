@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useContext } from "react";
 import Link from "next/link";
 import CartContext from "@/store/cart-context";
-import styles from "../../styles/products.module.css";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,17 +12,16 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CiHeart } from "react-icons/ci";
 
-function ProductCards({ image, price, category, title, rating, id }) {
+function ProductCards({ image, price, title, rating, id }) {
   const [quantity, setQuantity] = useState(0);
   const cartCtx = useContext(CartContext);
 
   // Get actual quantity from cart context
-  const cartItem = cartCtx.items?.find((item) => item.id === id);
+  const cartItem = cartCtx.productsAdded?.find((item) => item.id === id);
   const actualQuantity = cartItem ? cartItem.quantity : 0;
 
   const onAddToCartHandler = () => {
     setQuantity(() => quantity + 1);
-    cartCtx.cartValue;
     cartCtx.onAddToCart(title, price, id, image);
   };
 

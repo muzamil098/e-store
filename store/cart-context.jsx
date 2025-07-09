@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// var value = 0;
+
 const CartContext = React.createContext({
   cartValue: 0,
   onAddToCart: () => {},
@@ -7,11 +7,9 @@ const CartContext = React.createContext({
   cartStateHandler: (state) => {},
   cartState: false,
   onRemoveFromCart: () => {},
-  // onCloseModal: () => {},
 });
 let products = [];
 export const CartContextProvider = (props) => {
-  // const [products, setProducts] = useState([]);
   const [cartState, setCartState] = useState(false);
   const [value, setValue] = useState(0);
   const [cartError, setCartError] = useState("");
@@ -70,9 +68,7 @@ export const CartContextProvider = (props) => {
     setCartState(state);
     console.log(cartState);
   };
-  const onCloseModal = (state) => {
-    setCartState(state);
-  };
+  
   const resetCartHandler = () => {
     products = [];
     setValue(0);

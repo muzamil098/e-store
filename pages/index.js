@@ -5,7 +5,6 @@ import { useContext } from "react";
 import Carousel from "./Homepage Components/Carousel";
 import Deals from "./Homepage Components/Deals";
 import AskNextAI from "./Homepage Components/AskNextAI";
-import CarouselComponent from "./Global Components/CarouselComponent";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

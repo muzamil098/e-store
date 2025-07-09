@@ -6,7 +6,6 @@ import Link from "next/link";
 const Navbar = (props) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [cartState, setCartState] = useState(false);
   const cartCtx = useContext(CartContext);
 
   const toggleSidebar = () => {
